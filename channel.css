@@ -1,0 +1,325 @@
+:root {
+  --doc-color: rgb(0, 0, 0);
+  /*rgb(255, 255, 255);*/
+  --text-color: rgb(255, 255, 255);
+  /*rgb(0, 0, 0);*/
+  --bg-color: rgb(39, 39, 39);
+  /*rgb(242, 242, 242);*/
+  --hover-color: rgb(61, 61, 61);
+  /*rgb(217, 217, 217);*/
+  counter-reset: position;
+  max-width: 100%;
+  --font-size: clamp(1px, 1vw, 27px)
+}
+
+.light {
+  --doc-color: rgb(255, 255, 255);
+  --text-color: rgb(0, 0, 0);
+  --bg-color: rgb(242, 242, 242);
+  --hover-color: rgb(217, 217, 217);
+}
+.class{color: var(--text-color);}
+.yt_logo {
+  aspect-ratio: 4.4854368932/1;
+  width: 16.69vw;
+  display: flex;
+
+}
+
+.notimage {
+  aspect-ratio: 1.5/1;
+  width: 3vw;
+  /* margin-left: -12vw; */
+}
+
+b {
+  font-family: "Yt-font", sans-serif;
+  align-content: center;
+  aspect-ratio: 3.2432432432/1;
+  font-size: 1vw;
+  padding-top: 0.497vw;
+  margin-left: -0.31vw;
+  color: var(--text-color);
+}
+
+body {
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  background-color: var(--doc-color);
+  color: var(--text-color);
+  font-size: var(--font-size);
+}
+
+.nav1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  background-color: var(--doc-color);
+
+}
+
+a {
+  margin-top: 0.5vw;
+  margin-bottom: 0.5vw;
+  text-decoration: none;
+
+}
+
+.hamburger {
+  display: flex;
+  justify-content: center;
+  margin-left: 2vw;
+  color: var(--text-color);
+  aspect-ratio: 1/1;
+  padding: 0.3vw;
+}
+
+.hamburger:hover {
+  color: var(--text-color);
+  background: var(--hover-color);
+  border-radius: 50%;
+}
+
+
+.mic {
+  color: var(--text-color);
+  background: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  padding: 0.3vw;
+  border-radius: 50%;
+}
+
+.mic:hover {
+  background-color:
+    var(--hover-color);
+
+
+}
+
+.user {
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  margin-right: 3vw;
+  width: 1vw;
+}
+
+button {
+  aspect-ratio: 4/1.5;
+  width: 3vw;
+  font-size: var(--font-size);
+  overflow: hidden;
+}
+
+.sidebar {
+  max-width: 10vw;
+  list-style: none;
+  width: 10vw;
+  padding: 0.25vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  margin: 1vw;
+  width: 100%;
+
+}
+
+.image {
+  height: clamp(50%, 70%, 12vw);
+  border-radius: 2vw;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+
+
+.wrapper1 {
+  display: flex;
+}
+
+.channel {
+  flex-wrap: wrap;
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  margin: 1vw;
+
+}
+
+.photo {
+  border-radius: 50%;
+  margin-left: 12vw;
+  aspect-ratio: 1/1;
+  width: 12vw;
+  height: 12vw;
+}
+
+.profile {
+  display: flex;
+  margin-top: 2vw;
+  max-height: 56vw;
+}
+
+.link {
+  text-decoration: none;
+}
+
+span {
+  border-bottom: solid var(--bg-color) 1px;
+  display: inline-block;
+  width: 100%;
+}
+
+.subscribe {
+  color: var(--doc-color);
+  border: solid 0.01vw;
+  background-color: var(--text-color);
+  border-radius: 1.2vw;
+  padding: 0.2vw;
+  ;
+
+}
+
+.throwaway {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-between;
+  padding: 0.01vw;
+  margin: 0.5vw;
+}
+.level:hover{cursor:pointer;
+                  background-color: var(--bg-color);}
+
+li.space:hover{cursor:pointer;}
+
+.str {
+ font-size: clamp(0px, 720%, 639vw);
+  font-family: "Roboto", "Arial", sans-serif;
+}
+
+.str sup {
+  font-size: 2vw;
+}
+
+.gradient {
+  background: linear-gradient(to right, var(--text-color), var(--text-color) 72%, var(--doc-color) 97%);
+  background-clip: border-box;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav2 {
+  display: flex;
+  padding-left: 12vw;
+  margin-top: 2vw;
+  justify-content: space-between;
+  list-style: none;
+  margin-bottom: 0px;
+
+
+}
+
+
+.hover:hover {
+  border-bottom: solid var(--hover-color) 3px;
+  border-radius: 2px;
+  cursor:pointer;
+  
+}
+
+/* .sub{width: clamp(200px, 50%, 600px);} */
+.level {
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
+}
+
+.videos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2%;
+  justify-content: space-evenly;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: 2.5%;
+
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  justify-content: center;
+  counter-increment: position;
+  grid-column: (var(--column));
+  grid-row: calc((var(--position))/4);
+  border-radius:1vw;
+
+}
+
+.thumbnail {
+  max-width: 100%;
+  border-radius: 1.2vw;
+  width: clamp(18vw, 108%, 30vw);
+}
+
+.thumb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5vw;
+}
+
+.title {
+  font-size: var(--font-size);
+}
+
+.small {
+  width: 1vw;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}
+
+li {
+  padding-top: 0.25vw;
+  padding-bottom: 0.25vw;
+}
+.tile:hover{cursor: pointer;
+  background-color: var(--bg-color);
+  }
+
+
+
+
+@media (min-width: 768px) {
+  .nav2 {
+    width: 20%;
+  }
+}
+
+@media (max-width: 2600px) {
+  .nav2 {
+    width: 40%;
+  }
+}
+
+@media (max-width: 848px) {
+  .nav2 {
+    width: 100%;
+  }
+}
+
+@font-face {
+  font-family: "Yt-font";
+  src: local("url(Shreyas' Youtube mockup/ytfont.ttf)") format("truetype")
+  local("/Users/shreyasregmi/Downloads/Trade_Gothic_Font/14 Trade Gothic Font Download/Trade Gothic LT Bold Condensed No. 20.ttf") local("/Users/shreyasregmi/Library/Fonts/Trade Gothic LT Bold Condensed No. 20.ttf") format('truetype') local("/Users/shreyasregmi/Library/Fonts/Trade Gothic LT Bold Condensed No. 20.ttf")
+    /* not working  */
+}
