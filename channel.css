@@ -64,6 +64,7 @@ a {
   margin-top: 0.5vw;
   margin-bottom: 0.5vw;
   text-decoration: none;
+  color: var(--text-color);
 
 }
 
@@ -196,7 +197,8 @@ span {
   margin: 0.5vw;
 }
 .level:hover{cursor:pointer;
-                  background-color: var(--bg-color);}
+                  background-color: var(--bg-color);
+                }
 
 li.space:hover{cursor:pointer;}
 

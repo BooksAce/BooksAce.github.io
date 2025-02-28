@@ -1,0 +1,161 @@
+<head>This Is A Form</head>
+
+<body>
+  <form>
+    <Div class="margin">
+      <Label for="Name1">First Name</Label>
+      <input type="text" name="Name1" class="Name form" placeholder="First Name" required>
+    </Div class="margin">
+    <Div class="margin">
+      <Label for="Name2">Middle Name</Label>
+      <input type="text" name="Name2" class="Name form" placeholder="Middle Name">
+    </Div class="margin">
+    <Div class="margin">
+      <Label for="Name3">Last Name</Label>
+      <input type="text" name="Name3" class="Name form" placeholder="Last Name" required>
+    </Div class="margin">
+
+
+
+    <div class="margin">
+      <label for="Mail">Email:</label>
+      <input type="email" name="email" placeholder="email" id="Mail" class="Email form" required> </Input>
+    </div>
+
+    <div class="margin">
+      <label for="form">Select your country:</label>
+      <select id="country" name="country" class="Name form">
+        <option value="India">India</option>
+        <option value="China">China</option>
+        <option value="Bhutan">Bhutan</option>
+        <option value="Sri Lanka">Sri Lanka</option>
+        <option value="Pakistan">Pakistan</option>
+        <option value="Nepal">Nepal</option>
+      </select>
+    </div>
+
+
+    <div class="margin">
+      <label for="radio">Select your gender:</label>
+      <input type="radio" name="gender" value="Male" class="radio" required>male </Input>
+      <input type="radio" name="gender" value="Female" class="radio" required>female </Input>
+      <input type="radio" name="gender" value="other" class="radio" required>other </Input>
+    </div>
+
+    <div class="margin">
+      <label for="Number">Age:</label>
+      <input type="Number" name="age" placeholder="Age" class="form" id="Number" required> </Input>
+    </div>
+
+
+    <div class="margin">
+      <label for="promo">Have you heard of our firm from anywhere else?</label>
+      <br>
+      <input type="radio" name="promo" value="Y" class="form" required>yes</Input>
+      <input type="radio" name="promo" value="N" class="form" required>No </Input>
+    </div>
+
+
+    <div class="margin">
+      Would you recommend our services to:
+      <br>
+      <input type="checkbox" name="Recommendation" Value="Y">friends
+      <br>
+      <input type="checkbox" name="Recommendation" Value="Y">Family
+      <br>
+      <input type="checkbox" name="Recommendation" Value="Y">Neighbours
+      <br>
+      <input type="checkbox" name="Recommendation" Value="Y">Colleagues
+    </div>
+
+    <div class="margin submit">
+      <label for="submit">Click here to submit</label>
+      <input type="Submit" name="submit" value="Submit " class=" red krishala form submit"> </Input>
+    </div>
+  </form>
+</body>
+
+<style type="text/css">
+  label {
+    display: inline-block;
+    width: 200px;
+  }
+
+  .margin {
+    background: #f23535;
+    border-radius: 20px;
+    margin: 20px;
+    padding: 4px;
+    border: 0.009px solid;
+    color: #392b06;
+    transition: 0.5s ease background;
+  }
+
+  .abc {
+    background: #C1D0B5;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 4px;
+    color: #392b06;
+    transition: 0.5s ease background;
+  }
+
+  .form {
+    background: #c8b09c;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 4px;
+    color: #392b06;
+    transition: 0.5s ease background;
+  }
+
+  select {
+    border: 2px solid;
+    margin: 10px;
+    padding: 4px;
+    color: #392b06;
+    transition: 0.5s ease background;
+  }
+
+  .margin:hover {
+
+    background: rgb(141, 39, 5);
+    font-style: oblique;
+  }
+
+  .krishala {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-right: 6px;
+    margin-left: 6px;
+    border: 4px solid;
+    padding: 4px;
+    color: rgb(249, 87, 0);
+  }
+
+  .red {
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    border: 7px solid;
+    color: rgb(145, 185, 110);
+  }
+
+  .krishala:hover {
+    color: rgb(151, 62, 18);
+    background-color: rgb(176, 73, 14);
+    border-style: dashed;
+  }
+
+  .red:hover {
+    background-color: cornflowerblue;
+    transition: 0.25s ease-in-out background;
+  }
+
+  .red:hover {
+    color: darkgray;
+  }
+
+  body {
+    background: #FFF8DE;
+  }
+</style>
