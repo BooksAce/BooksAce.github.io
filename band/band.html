@@ -4,25 +4,370 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Band - The Doors</title>
-    <link rel="stylesheet" href="band.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            background-color: #777;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo img {
+            height: 80px;
+            max-height: 60px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            background-color: #111;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-carousel {
+            position: relative;
+        }
+
+        .hero-carousel img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-carousel .slick-prev,
+        .hero-carousel .slick-next {
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+        }
+
+        .hero-carousel .slick-prev:before,
+        .hero-carousel .slick-next:before {
+            font-size: 40px;
+            color: white;
+        }
+
+        .hero-carousel .slick-dots {
+            bottom: 20px;
+        }
+
+        .hero-carousel .slick-dots li button:before {
+            color: white;
+            font-size: 12px;
+        }
+
+        .upper-text {
+            padding: 30px 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .band-members {
+            background-color: #222;
+            padding: 40px 20px;
+        }
+
+        .member {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #D9D9D9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+
+        .member-info {
+            width: 65%;
+            color: black;
+            min-width: 300px;
+        }
+
+        .member-image {
+            width: 30%;
+            overflow: hidden;
+            min-width: 200px;
+            position: relative;
+        }
+
+        .member-carousel {
+            position: relative;
+        }
+
+        .member-carousel img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .member-carousel .slick-prev,
+        .member-carousel .slick-next {
+            z-index: 1;
+            width: 30px;
+            height: 30px;
+        }
+
+        .member-carousel .slick-prev:before,
+        .member-carousel .slick-next:before {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .member-carousel .slick-dots {
+            bottom: -30px;
+        }
+
+        .member-carousel .slick-dots li button:before {
+            color: #333;
+            font-size: 8px;
+        }
+
+        .member p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        .member h2 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        footer {
+            background-color: #111;
+            text-align: center;
+            padding: 40px 10px;
+            color: white;
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icons {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            display: inline-block;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .newsletter h2 {
+            font-size: 20px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .newsletter button {
+            background: black;
+            color: white;
+            padding: 10px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter button:hover {
+            background: #333;
+        }
+
+        .trademark {
+            font-size: 12px;
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .logo img {
+                height: 60px;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 10px;
+            }
+
+            nav ul li a {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+
+            .upper-text {
+                font-size: 20px;
+                padding: 20px 15px;
+            }
+
+            .upper-text h1 {
+                font-size: 24px;
+            }
+
+            .member {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .member-info {
+                width: 100%;
+                min-width: auto;
+                margin-bottom: 20px;
+            }
+
+            .member-image {
+                width: 100%;
+                min-width: auto;
+                max-width: 300px;
+            }
+
+            .member h2 {
+                font-size: 18px;
+            }
+
+            .member p {
+                font-size: 13px;
+            }
+
+            .social-icons {
+                position: static;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+
+            .newsletter h2 {
+                font-size: 18px;
+            }
+
+            .hero-carousel img {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .band-members {
+                padding: 20px 10px;
+            }
+
+            .member {
+                padding: 15px;
+            }
+
+            .member-image {
+                max-width: 250px;
+            }
+
+            .member-carousel img {
+                height: 200px;
+            }
+
+            .upper-text {
+                font-size: 18px;
+            }
+
+            .upper-text h1 {
+                font-size: 20px;
+            }
+
+            nav ul li a {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+
+            .hero-carousel img {
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="Images/doors_logo-noBG.png">
+            <img src="Images/doors_logo-noBG.png" alt="The Doors Logo">
         </div>
         <nav>
             <ul>
                 <li><a href="home.html">HOME</a></li>
-           <!--<li><a href="reference.html">REFERENCES</a></li>-->
                 <li><a href="shop.html">SHOP</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
             </ul>
         </nav>
     </header>
-    <section class="hero">
-        <img src="Images/doors-theband-hero.webp">
 
+    <section class="hero">
+        <div class="hero-carousel">
+            <div><img src="Images/doors-theband-hero.webp" alt="The Doors Band"></div>
+            <div><img src="Images/doors-members-herosection.webp" alt="The Doors Members"></div>
+            <div><img src="Images/Morrison_Hotel.webp" alt="Morrison Hotel"></div>
+        </div>
     </section>
 
     <div class="upper-text">
@@ -30,164 +375,132 @@
     </div>
     
     <section class="band-members">
-
         <div class="member">
             <div class="member-info">
                 <h2>JIM MORRISON</h2>
-                <p>
-                    At the center of The Doors’ mystique is the magnetic presence of singer-poet Jim Morrison, the leather-clad “Lizard King” who brought the riveting power of a shaman to the microphone.
-                    Morrison was a film student at UCLA when he met keyboardist Ray Manzarek on Venice Beach in 1965. Upon hearing Morrison’s poetry, Manzarek immediately suggested they form a band; the singer took the group’s name from Aldous Huxley’s infamous psychedelic memoir, “The Doors of Perception.”
-                <p>
-                    Constantly challenging censorship and conventional wisdom, Morrison’s lyrics delved into primal issues of sex, violence, freedom and the spirit. He outraged authority figures, braved intimidation and arrest, and followed the road of excess (as one of his muses, the poet William Blake, famously put it) toward the palace of wisdom.
-                </p>
-                <p>
-                    Over the course of six extraordinary albums and countless boundary-smashing live performances, he inexorably changed the course of rock music – and died in 1971 at the age of 27. He was buried in Paris, and fans from around the world regularly make pilgrimages to his grave.
-                    In 1978, the surviving members of the band – keyboardist Ray Manzarek, guitarist Robby Krieger and drummer John Densmore – reunited to record the accompanying music for An American Prayer, a compilation of Morrison’s poetry readings. He remains the very template of the rock frontman, and his singing, poetry and Dionysian demeanor continue to inspire artists and audiences around the world.
-                </p>
-                </p>
-                <p>
-                    Morrison's untamed persona and cryptic lyrics captivated audiences, making him one of the most charismatic figures in rock history.
-                    However, his life was tragically cut short in 1971, solidifying his status as a member of the "27 Club."
-                </p>
+                <p>At the center of The Doors' mystique is the magnetic presence of singer-poet Jim Morrison, the leather-clad "Lizard King" who brought the riveting power of a shaman to the microphone.</p>
+                <p>Morrison was a film student at UCLA when he met keyboardist Ray Manzarek on Venice Beach in 1965. Upon hearing Morrison's poetry, Manzarek immediately suggested they form a band.</p>
+                <p>Constantly challenging censorship and conventional wisdom, Morrison's lyrics delved into primal issues of sex, violence, freedom and the spirit. He outraged authority figures, braved intimidation and arrest.</p>
+                <p>Over the course of six extraordinary albums and countless boundary-smashing live performances, he inexorably changed the course of rock music – and died in 1971 at the age of 27.</p>
+                <p>Morrison's untamed persona and cryptic lyrics captivated audiences, making him one of the most charismatic figures in rock history.</p>
                 <p><strong>Born:</strong> December 8, 1943</p>
             </div>
             <div class="member-image">
-                <img src="Images/jim-morrison.webp">
+                <div class="member-carousel">
+                    <div><img src="Images/jim-morrison.webp" alt="Jim Morrison"></div>
+                    <div><img src="Images/jim-morrison-2.jpg" alt="Jim Morrison Performance"></div>
+                    <div><img src="Images/jim-morrison-3.jpg" alt="Jim Morrison Portrait"></div>
+                </div>
             </div>
         </div>
 
         <div class="member">
             <div class="member-info">
                 <h2>RAY MANZAREK</h2>
-                <p>
-                    Ray Manzarek was the architect of The Doors’ intoxicating keyboard sound. Manzarek’s
-                    evocative playing fused rock, jazz, blues, bossa nova and an array of other styles into something utterly, dazzlingly new.
-                <p>                
-                    The group was born in 1965, when Jim Morrison and Chicago native Manzarek — both UCLA film students — met on Venice Beach. 
-                    The singer’s poetry was a perfect fit for the classically trained keyboardist’s musical ideas, and eventually they decided to form a band. 
-                    Though several bassists auditioned for the group, none could match the bass lines provided by Manzarek’s left hand. Signed to Elektra Records, 
-                    The Doors released six studio albums, a live album and a compilation before Morrison’s untimely demise in 1971.
-                </p>
-                <p>
-                    Manzarek, Krieger and Densmore released two albums as a trio under the Doors moniker,
-                     with Manzarek and Krieger handling vocals. Manzarek next formed the group Nite City, which invited
-                      comparisons to Mott the Hoople and Aerosmith; the quintet released its one album in 1977.
-                </p>
-                <p> 
-                    The surviving Doors reunited to create a musical backdrop for Morrison’s recorded
-                    poetry on the 1978 release An American Prayer. Manzarek produced and performed on five of the L.A.
-                    band X’s albums, including Los Angeles, which remains one of the high-water marks of the punk movement. 
-                    The keyboardist authored several books, and recorded numerous solo albums. Ray lived with his wife of 45 years,
-                    Dorothy, in Napa, CA until his passing in May of 2013 following his ultimately fatal bout with bile duct cancer.
-                </p>
-                <p>
-                    His classical and jazz influences blended seamlessly into The Doors’ music, giving their songs a distinctive character. 
-                    Even after Morrison's passing, Ray continued to honor The Doors' legacy.
-                </p>
+                <p>Ray Manzarek was the architect of The Doors' intoxicating keyboard sound. Manzarek's evocative playing fused rock, jazz, blues, bossa nova and an array of other styles into something utterly, dazzlingly new.</p>
+                <p>The group was born in 1965, when Jim Morrison and Chicago native Manzarek — both UCLA film students — met on Venice Beach. The singer's poetry was a perfect fit for the classically trained keyboardist's musical ideas.</p>
+                <p>Manzarek, Krieger and Densmore released two albums as a trio under the Doors moniker, with Manzarek and Krieger handling vocals.</p>
+                <p>The surviving Doors reunited to create a musical backdrop for Morrison's recorded poetry on the 1978 release An American Prayer.</p>
+                <p>His classical and jazz influences blended seamlessly into The Doors' music, giving their songs a distinctive character.</p>
                 <p><strong>Born:</strong> February 12, 1939</p>
             </div>
             <div class="member-image">
-                <img src="Images/ray-manzarek.webp">
+                <div class="member-carousel">
+                    <div><img src="Images/ray-manzarek.webp" alt="Ray Manzarek"></div>
+                    <div><img src="Images/ray-manzarek-2.jpg" alt="Ray Manzarek Keyboard"></div>
+                    <div><img src="Images/ray-manzarek-3.jpg" alt="Ray Manzarek Studio"></div>
+                </div>
             </div>
         </div>
 
         <div class="member">
             <div class="member-info">
                 <h2>JOHN DENSMORE</h2>
-                <p>
-                    Drummer John Densmore was far more than merely the rhythmic engine of The Doors. 
-                    Strongly influenced by jazz skinsmen like Elvin Jones and the supple grooves of the Brazilian wave, 
-                    he brought a highly evolved sense of dynamics, structure and musicality to his beats.
-                </p>
-                <p>
-                    Inexorably drawn to music from childhood, Los Angeles-born Densmore honed his sense of dynamics 
-                    playing with his high school marching band. In the mid-’60s he joined guitarist Robby Krieger in a 
-                    band called Psychedelic Rangers; shortly thereafter they hooked up with keyboardist Ray Manzarek and 
-                    Morrison, and an explosive chapter in the development of rock ‘n’ roll began. 
-                </p>
-                <p>
-                    Morrison’s death in 1971 marked the end of an era, though the surviving trio recorded two more albums of songs and an instrumental backdrop for the late singer’s recorded poetry.
-                    The versatile musician explored reggae and jazz in subsequent projects, wrote books and articles and became active in 
-                    L.A.’s adventurous theater community. He earned an L.A. Weekly Theatre Award for the music he created for the Tim 
-                    Robbins-directed stage production Methusalem. He also co-produced the play Rounds, which was given the NAACP award for theatre in 1987.
-                </p>
-                <p>
-                    Even after The Doors disbanded, Densmore remained deeply committed to preserving the band's artistic integrity and musical legacy.
-                </p>
+                <p>Drummer John Densmore was far more than merely the rhythmic engine of The Doors. Strongly influenced by jazz skinsmen like Elvin Jones and the supple grooves of the Brazilian wave, he brought a highly evolved sense of dynamics.</p>
+                <p>Inexorably drawn to music from childhood, Los Angeles-born Densmore honed his sense of dynamics playing with his high school marching band.</p>
+                <p>Morrison's death in 1971 marked the end of an era, though the surviving trio recorded two more albums of songs and an instrumental backdrop for the late singer's recorded poetry.</p>
+                <p>The versatile musician explored reggae and jazz in subsequent projects, wrote books and articles and became active in L.A.'s adventurous theater community.</p>
+                <p>Even after The Doors disbanded, Densmore remained deeply committed to preserving the band's artistic integrity and musical legacy.</p>
                 <p><strong>Born:</strong> December 1, 1944</p>
             </div>
             <div class="member-image">
-                <img src="Images/john-densmore.webp">
+                <div class="member-carousel">
+                    <div><img src="Images/john-densmore.webp" alt="John Densmore"></div>
+                    <div><img src="Images/john-densmore-2.jpg" alt="John Densmore Drums"></div>
+                    <div><img src="Images/john-densmore-3.jpg" alt="John Densmore Live"></div>
+                </div>
             </div>
         </div>
 
         <div class="member">
             <div class="member-info">
                 <h2>ROBBY KRIEGER</h2>
-                <p>
-                    With a flair for wicked bottleneck slide, exploratory solos and gutbucket grooves, 
-                    guitarist Robby Krieger brought a stinging, sinuous intensity to the sound of The Doors. 
-                    But he was also a key songwriter in the band and penned some of their biggest hits – notably 
-                    their mesmerizing #1 hit, “Light My Fire.”
-                </p>
-                <p>
-                    Before picking up the guitar at age 17, the L.A. native studied trumpet and piano. 
-                    The inspiration for switching to guitar came not from rock ‘n’ roll, 
-                    but Spanish flamenco music. His first guitar hero, however, was jazz legend Wes Montgomery.
-                </p>
-                <p>
-                    After Morrison’s death in 1971, Krieger, Manzarek and Densmore carried on as a trio. 
-                    They released two more albums as the Doors before calling it quits in 1973, though they did 
-                    reconvene a few years later to create music for poetry Morrison had recorded 
-                    shortly before his death, released as the 1978 album An American Prayer.
-                </p>
-                <p>
-                    Krieger went on to enjoy success as a jazz guitarist, recording a handful of records with 
-                    the Robby Krieger Band in the 1970s and ’80s. Versions (1983) and No Habla(1986) amply demonstrate 
-                    his versatility. “I think playing guitar is probably the one thing that gets better with age,” he says.
-                    Robby Krieger is listed among Rolling Stone’s “100 Greatest Guitarists of All Time.”
-
-                </p>
-                <p>
-                    Even after The Doors disbanded, Densmore remained deeply committed to preserving the band's artistic integrity and musical legacy.
-                </p>
+                <p>With a flair for wicked bottleneck slide, exploratory solos and gutbucket grooves, guitarist Robby Krieger brought a stinging, sinuous intensity to the sound of The Doors.</p>
+                <p>Before picking up the guitar at age 17, the L.A. native studied trumpet and piano. The inspiration for switching to guitar came not from rock 'n' roll, but Spanish flamenco music.</p>
+                <p>After Morrison's death in 1971, Krieger, Manzarek and Densmore carried on as a trio. They released two more albums as the Doors before calling it quits in 1973.</p>
+                <p>Krieger went on to enjoy success as a jazz guitarist, recording a handful of records with the Robby Krieger Band in the 1970s and '80s.</p>
+                <p>Robby Krieger is listed among Rolling Stone's "100 Greatest Guitarists of All Time."</p>
                 <p><strong>Born:</strong> January 8, 1946</p>
             </div>
             <div class="member-image">
-                <img src="Images/robby-krieger.webp">
+                <div class="member-carousel">
+                    <div><img src="Images/robby-krieger.webp" alt="Robby Krieger"></div>
+                    <div><img src="Images/robby-krieger-2.jpg" alt="Robby Krieger Guitar"></div>
+                    <div><img src="Images/robby-krieger-3.jpg" alt="Robby Krieger Performance"></div>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="social-icons">
-            <a href="">
-                <img src="Images\fb-icon-black.png">
-            </a>
-            <a href="">
-                <img src="Images\insta-icon-black.png">
-            </a>
-            <a href="">
-                <img src="Images\tiktok-icon-black.png">
-            </a>
-            <a href="">
-                <img src="Images/spotify-icon-black.png" >
-            </a>
-            <a href="">
-                <img src="Images\yt-icon-black.png">
-            </a>
-            <a href="">
-                <img src="Images\twitter-icon-black.png" >
-            </a>
+            <a href="#"><img src="Images/fb-icon-black.png" alt="Facebook"></a>
+            <a href="#"><img src="Images/insta-icon-black.png" alt="Instagram"></a>
+            <a href="#"><img src="Images/tiktok-icon-black.png" alt="TikTok"></a>
+            <a href="#"><img src="Images/spotify-icon-black.png" alt="Spotify"></a>
+            <a href="#"><img src="Images/yt-icon-black.png" alt="YouTube"></a>
+            <a href="#"><img src="Images/twitter-icon-black.png" alt="Twitter"></a>
         </div>
     
         <div class="newsletter">
             <h2>THE DOORS <br> NEWSLETTER</h2>
             <button>SUBSCRIBE</button>
         </div>
-            <p class="trademark">THE DOORS IS A REGISTERED TRADEMARK OF THE DOORS PROPERTY, LLC. &copy; 2025 THE DOORS PROPERTY LLC. ALL RIGHTS RESERVED.</p>
-        </div>
+        <p class="trademark">THE DOORS IS A REGISTERED TRADEMARK OF THE DOORS PROPERTY, LLC. &copy; 2025 THE DOORS PROPERTY LLC. ALL RIGHTS RESERVED.</p>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Initialize hero carousel
+            $('.hero-carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear',
+                autoplay: true,
+                autoplaySpeed: 4000,
+                arrows: true,
+                pauseOnHover: true
+            });
+
+            // Initialize member carousels
+            $('.member-carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: true,
+                pauseOnHover: true,
+                fade: true,
+                cssEase: 'linear'
+            });
+        });
+    </script>
 </body>
 </html>
