@@ -4,25 +4,409 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - The Doors</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+        }
+
+        header {
+            background-color: #777;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo img {
+            height: 80px;
+            max-width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            background-color: #111;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-carousel {
+            position: relative;
+        }
+
+        .hero-carousel img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-carousel .slick-prev,
+        .hero-carousel .slick-next {
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+        }
+
+        .hero-carousel .slick-prev:before,
+        .hero-carousel .slick-next:before {
+            font-size: 40px;
+            color: white;
+        }
+
+        .hero-carousel .slick-dots {
+            bottom: 20px;
+        }
+
+        .hero-carousel .slick-dots li button:before {
+            color: white;
+            font-size: 12px;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            width: 80%;
+            text-align: center;
+            border-radius: 8px;
+            z-index: 10;
+        }
+
+        .hero-text h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .albums {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .albums h2 {
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .album {
+            background: #DBDBDB;
+            padding: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .album:hover {
+            transform: translateY(-5px);
+        }
+
+        .album img {
+            width: 100%;
+            border-radius: 8px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .album p {
+            color: black;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .news {
+            background-color: #DBDBDB;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .news h2 {
+            color: black;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .news-item {
+            display: flex;
+            background: #6F6C5B;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .news-item img {
+            width: 150px;
+            height: 120px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .news-text {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .news-text h3 {
+            color: #FFF700;
+            opacity: 0.9;
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+
+        .news-text p {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        footer {
+            background-color: #111;
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            display: inline-block;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .newsletter h2 {
+            font-size: 20px;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter button {
+            background: black;
+            color: white;
+            padding: 10px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter button:hover {
+            background: #333;
+        }
+
+        .trademark {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .logo img {
+                height: 60px;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 10px;
+            }
+
+            nav ul li a {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+
+            .hero-text {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .hero-text h1 {
+                font-size: 28px;
+            }
+
+            .hero-text p {
+                font-size: 12px;
+                line-height: 1.4;
+            }
+
+            .hero-carousel img {
+                height: 300px;
+            }
+
+            .albums {
+                padding: 30px 15px;
+            }
+
+            .albums h2 {
+                font-size: 24px;
+            }
+
+            .album-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .album img {
+                height: 150px;
+            }
+
+            .news {
+                padding: 30px 15px;
+            }
+
+            .news h2 {
+                font-size: 24px;
+            }
+
+            .news-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .news-item img {
+                width: 100%;
+                height: 200px;
+            }
+
+            .news-text {
+                text-align: center;
+            }
+
+            .social-icons {
+                position: static;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 24px;
+            }
+
+            .hero-text p {
+                font-size: 11px;
+            }
+
+            .hero-carousel img {
+                height: 250px;
+            }
+
+            .album-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            .album img {
+                height: 120px;
+            }
+
+            nav ul li a {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+
+            .albums h2, .news h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="Images/doors_logo-noBG.png">
+            <img src="Images/doors_logo-noBG.png" alt="The Doors Logo">
         </div>
         <nav>
             <ul>
                 <li><a href="band.html">THE BAND</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
-                  <!--<li><a href="reference.html">REFERENCES</a></li>-->
                 <li><a href="shop.html">SHOP</a></li>
             </ul>
         </nav>
     </header>
     
     <section class="hero">
-        <img src="Images/doors-members-herosection.webp">
+        <div class="hero-carousel">
+            <div><img src="Images/doors-members-herosection.webp" alt="The Doors Members"></div>
+            <div><img src="Images/doors-theband-hero.webp" alt="The Doors Band"></div>
+            <div><img src="Images/Morrison_Hotel.webp" alt="Morrison Hotel"></div>
+        </div>
         <div class="hero-text">
             <h1>THE DOORS</h1>
             <p>
@@ -35,14 +419,7 @@
                 The Doors' 1967 self-titled debut album, which included the popular 
                 song "Light My Fire," launched them to stardom. The band, which combined rock, 
                 blues, and psychedelic elements in their music, gained fame in the late 1960s 
-                for Morrison's creative lyrics, captivating stage presence, and eccentric demeanor. 
-                In 1969, Morrison was arrested for indecent exposure during a concert in Miami, 
-                leading to a decline in the band's mainstream acceptance
-                The band's iconic era came to an end in 1971 when Morrison passed away in Paris 
-                at the age of 27 from unspecified causes. Before breaking up in 1973, the remaining
-                members remained together as a trio for two more albums. The Doors' songs, such as 
-                Riders on the Storm, Break On Through, and People Are Strange, are still well-known 
-                today despite Morrison's passing.
+                for Morrison's creative lyrics, captivating stage presence, and eccentric demeanor.
             </p>
         </div>
     </section>
@@ -51,45 +428,44 @@
         <h2>FAMOUS ALBUMS</h2>
         <div class="album-grid">
             <div class="album">
-                <img src="Images/the-doors-title-album.PNG">
+                <img src="Images/the-doors-title-album.PNG" alt="The Doors Album">
                 <p>THE DOORS</p>
             </div>
             <div class="album">
-                <img src="Images/strange-days-album.PNG">
+                <img src="Images/strange-days-album.PNG" alt="Strange Days Album">
                 <p>STRANGE DAYS</p>
             </div>
             <div class="album">
-                <img src="Images/waiting-for-the-sun-album.PNG">
+                <img src="Images/waiting-for-the-sun-album.PNG" alt="Waiting for the Sun Album">
                 <p>WAITING FOR THE SUN</p>
             </div>
             <div class="album">
-                <img src="Images/morrisson-hotel-album.PNG">
+                <img src="Images/morrisson-hotel-album.PNG" alt="Morrison Hotel Album">
                 <p>MORRISON HOTEL</p>
             </div>
             <div class="album">
-                <img src="Images/LA-woman-album.PNG">
+                <img src="Images/LA-woman-album.PNG" alt="L.A. Woman Album">
                 <p>L.A. WOMAN</p>
             </div>
             <div class="album">
-                <img src="Images/american-prayer-album.PNG">
+                <img src="Images/american-prayer-album.PNG" alt="American Prayer Album">
                 <p>AMERICAN PRAYER</p>
             </div>
             <div class="album">
-                <img src="Images/full-circle-album.PNG">
+                <img src="Images/full-circle-album.PNG" alt="Full Circle Album">
                 <p>FULL CIRCLE</p>
             </div>
             <div class="album">
-                <img src="Images/other-voices-album.PNG">
+                <img src="Images/other-voices-album.PNG" alt="Other Voices Album">
                 <p>OTHER VOICES</p>
             </div>
         </div>
     </section>
 
-    <!-- Exciting News Section -->
     <section class="news">
         <h2>EXCITING NEWS</h2>
         <div class="news-item">
-            <img src="Images/news1.jpg">
+            <img src="Images/news1.jpg" alt="60th Anniversary News">
             <div class="news-text">
                 <h3>60th anniversary announcement</h3>
                 <p>The Doors will turn 60 next year — something drummer John Densmore says the kids
@@ -97,7 +473,7 @@
             </div>
         </div>
         <div class="news-item">
-            <img src="Images/news2.jpg">
+            <img src="Images/news2.jpg" alt="New Album News">
             <div class="news-text">
                 <h3>ANNOUNCEMENT : NEW ALBUM</h3>
                 <p>Mark your calendars. This Record Store Day, The Doors legendary Stockholm concert 
@@ -105,7 +481,7 @@
             </div>
         </div>
         <div class="news-item">
-            <img src="Images/news3.jpg">
+            <img src="Images/news3.jpg" alt="Green Vinyl News">
             <div class="news-text">
                 <h3>Out Now : Alive, Green Vinyl</h3>
                 <p>The Doors iconic 2nd live album from 1983 is available now, pressed on limited-edition Emerald Green vinyl.</p>
@@ -115,33 +491,37 @@
 
     <footer>
         <div class="social-icons">
-            <a href="">
-                <img src="Images\fb-icon-black.png">
-            </a>
-            <a href="">
-                <img src="Images\insta-icon-black.png">
-            </a>
-            <a href="">
-                <img src="Images\tiktok-icon-black.png">
-            </a>
-            <a href="">
-                <img src="Images/spotify-icon-black.png">
-            </a>
-            <a href="">
-                <img src="Images\yt-icon-black.png">
-            </a>
-            <a href="">
-                <img src="Images\twitter-icon-black.png">
-            </a>
+            <a href="#"><img src="Images/fb-icon-black.png" alt="Facebook"></a>
+            <a href="#"><img src="Images/insta-icon-black.png" alt="Instagram"></a>
+            <a href="#"><img src="Images/tiktok-icon-black.png" alt="TikTok"></a>
+            <a href="#"><img src="Images/spotify-icon-black.png" alt="Spotify"></a>
+            <a href="#"><img src="Images/yt-icon-black.png" alt="YouTube"></a>
+            <a href="#"><img src="Images/twitter-icon-black.png" alt="Twitter"></a>
         </div>
     
         <div class="newsletter">
             <h2>THE DOORS <br> NEWSLETTER</h2>
             <button>SUBSCRIBE</button>
         </div>
-            <p class="trademark">THE DOORS IS A REGISTERED TRADEMARK OF THE DOORS PROPERTY, LLC. &copy; 2025 THE DOORS PROPERTY LLC. ALL RIGHTS RESERVED.</p>
-        </div>
+        <p class="trademark">THE DOORS IS A REGISTERED TRADEMARK OF THE DOORS PROPERTY, LLC. &copy; 2025 THE DOORS PROPERTY LLC. ALL RIGHTS RESERVED.</p>
     </footer>
-    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.hero-carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear',
+                autoplay: true,
+                autoplaySpeed: 4000,
+                arrows: true,
+                pauseOnHover: true
+            });
+        });
+    </script>
 </body>
 </html>
