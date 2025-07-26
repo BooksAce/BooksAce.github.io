@@ -67,12 +67,14 @@
 
         .hero-carousel {
             position: relative;
+            height: 400px; 
+            overflow: hidden; 
         }
 
         .hero-carousel img {
             width: 100%;
-            height: 400px;
-            object-fit: cover;
+            height: 100%; 
+            object-fit: cover; 
             display: block;
         }
 
@@ -139,10 +141,16 @@
 
         .member-carousel img {
             width: 100%;
-            height: 300px;
-            object-fit: cover;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
             border-radius: 8px;
         }
+        .member-carousel .slick-list,
+        .member-carousel .slick-track {
+            height: auto;
+        }
+
 
         .member-carousel .slick-prev,
         .member-carousel .slick-next {
@@ -241,7 +249,7 @@
             opacity: 0.8;
         }
 
-        /* Responsive Design */
+        
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -306,8 +314,7 @@
             .newsletter h2 {
                 font-size: 18px;
             }
-
-            .hero-carousel img {
+            .hero-carousel {
                 height: 250px;
             }
         }
@@ -326,7 +333,7 @@
             }
 
             .member-carousel img {
-                height: 200px;
+                max-height: 200px;
             }
 
             .upper-text {
@@ -342,7 +349,8 @@
                 font-size: 11px;
             }
 
-            .hero-carousel img {
+        
+            .hero-carousel {
                 height: 200px;
             }
         }
@@ -373,7 +381,7 @@
     <div class="upper-text">
         <h1>THE BAND MEMBERS</h1>
     </div>
-    
+
     <section class="band-members">
         <div class="member">
             <div class="member-info">
@@ -387,7 +395,7 @@
             </div>
             <div class="member-image">
                 <div class="member-carousel">
-                    <div><img src="Images/jim-morrison.webp" alt="Jim Morrison"></div>
+                    <div><img src="Images/jim-morrison.jpg" alt="Jim Morrison"></div>
                     <div><img src="Images/jim-morrison-2.jpg" alt="Jim Morrison Performance"></div>
                     <div><img src="Images/jim-morrison-3.jpg" alt="Jim Morrison Portrait"></div>
                 </div>
@@ -406,7 +414,7 @@
             </div>
             <div class="member-image">
                 <div class="member-carousel">
-                    <div><img src="Images/ray-manzarek.webp" alt="Ray Manzarek"></div>
+                    <div><img src="Images/ray-manzarek.jpg" alt="Ray Manzarek"></div>
                     <div><img src="Images/ray-manzarek-2.jpg" alt="Ray Manzarek Keyboard"></div>
                     <div><img src="Images/ray-manzarek-3.jpg" alt="Ray Manzarek Studio"></div>
                 </div>
@@ -425,7 +433,7 @@
             </div>
             <div class="member-image">
                 <div class="member-carousel">
-                    <div><img src="Images/john-densmore.webp" alt="John Densmore"></div>
+                    <div><img src="Images/john-densmore.jpg" alt="John Densmore"></div>
                     <div><img src="Images/john-densmore-2.jpg" alt="John Densmore Drums"></div>
                     <div><img src="Images/john-densmore-3.jpg" alt="John Densmore Live"></div>
                 </div>
@@ -444,7 +452,7 @@
             </div>
             <div class="member-image">
                 <div class="member-carousel">
-                    <div><img src="Images/robby-krieger.webp" alt="Robby Krieger"></div>
+                    <div><img src="Images/robby-krieger.jpg" alt="Robby Krieger"></div>
                     <div><img src="Images/robby-krieger-2.jpg" alt="Robby Krieger Guitar"></div>
                     <div><img src="Images/robby-krieger-3.jpg" alt="Robby Krieger Performance"></div>
                 </div>
@@ -461,7 +469,7 @@
             <a href="#"><img src="Images/yt-icon-black.png" alt="YouTube"></a>
             <a href="#"><img src="Images/twitter-icon-black.png" alt="Twitter"></a>
         </div>
-    
+
         <div class="newsletter">
             <h2>THE DOORS <br> NEWSLETTER</h2>
             <button>SUBSCRIBE</button>
@@ -473,7 +481,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Initialize hero carousel
+        
             $('.hero-carousel').slick({
                 dots: true,
                 infinite: true,
@@ -481,12 +489,12 @@
                 fade: true,
                 cssEase: 'linear',
                 autoplay: true,
-                autoplaySpeed: 4000,
+                autoplaySpeed: 2500,
                 arrows: true,
                 pauseOnHover: true
             });
 
-            // Initialize member carousels
+    
             $('.member-carousel').slick({
                 dots: true,
                 infinite: true,
@@ -504,3 +512,4 @@
     </script>
 </body>
 </html>
+```

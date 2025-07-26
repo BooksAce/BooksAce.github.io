@@ -256,7 +256,6 @@
             margin-top: 20px;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -396,7 +395,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Initialize hero carousel
             $('.hero-carousel').slick({
                 dots: true,
                 infinite: true,
@@ -409,13 +407,11 @@
                 pauseOnHover: true
             });
 
-            // Form validation
             const form = document.getElementById('contactForm');
             const nameInput = document.getElementById('name');
             const emailInput = document.getElementById('email');
             const messageInput = document.getElementById('message');
 
-            // Validation functions
             function validateName() {
                 const name = nameInput.value.trim();
                 const nameError = document.getElementById('nameError');
@@ -489,12 +485,10 @@
                 }
             }
 
-            // Real-time validation
             nameInput.addEventListener('blur', validateName);
             emailInput.addEventListener('blur', validateEmail);
             messageInput.addEventListener('blur', validateMessage);
 
-            // Clear errors on focus
             nameInput.addEventListener('focus', function() {
                 document.getElementById('nameError').style.display = 'none';
                 nameInput.classList.remove('input-error');
@@ -510,7 +504,6 @@
                 messageInput.classList.remove('input-error');
             });
 
-            // Form submission
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
@@ -519,16 +512,13 @@
                 const isMessageValid = validateMessage();
                 
                 if (isNameValid && isEmailValid && isMessageValid) {
-                    // Show success message
                     const successMessage = document.getElementById('successMessage');
                     successMessage.style.display = 'block';
                     
-                    // Reset form after 2 seconds
                     setTimeout(function() {
                         form.reset();
                         successMessage.style.display = 'none';
                         
-                        // Remove success classes
                         nameInput.classList.remove('input-success');
                         emailInput.classList.remove('input-success');
                         messageInput.classList.remove('input-success');

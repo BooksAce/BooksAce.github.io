@@ -130,7 +130,7 @@
 
         .album-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(4, minmax(200px, 1fr));
             gap: 20px;
             max-width: 1200px;
             margin: 0 auto;
@@ -270,7 +270,7 @@
             margin-top: 20px;
         }
 
-        /* Responsive Design */
+    
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -463,12 +463,12 @@
     </section>
 
     <section class="news">
-        <h2>EXCITING NEWS</h2>
+        <h2>EXCITING NEWS <p id="currentDateTime"></p></h2>
         <div class="news-item">
             <img src="Images/news1.jpg" alt="60th Anniversary News">
             <div class="news-text">
                 <h3>60th anniversary announcement</h3>
-                <p>The Doors will turn 60 next year — something drummer John Densmore says the kids
+                <p>The Doors will turn 60 this year — something drummer John Densmore says the kids
                  who formed the legendary rock group in Los Angeles could never have imagined.</p>
             </div>
         </div>
@@ -522,6 +522,27 @@
                 pauseOnHover: true
             });
         });
+        function updateDateTime() {
+            const now = new Date(); 
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit' 
+            };
+            const formattedDateTime = now.toLocaleDateString(undefined, options); 
+
+            const dateTimeElement = document.getElementById('currentDateTime');
+
+            dateTimeElement.textContent = formattedDateTime;
+        }
+
+        updateDateTime();
+
+        setInterval(updateDateTime, 1000);
     </script>
 </body>
 </html>
